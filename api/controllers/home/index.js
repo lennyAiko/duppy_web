@@ -12,6 +12,10 @@ module.exports = {
   },
 
   fn: async function () {
-    return { page: 'index' }
+    const page = await fetch('https://clenny.tech')
+
+    const htmlText = await page.text()
+
+    return { page: 'index', props: { htmlText } }
   }
 }
