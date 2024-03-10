@@ -11,7 +11,11 @@ const form = useForm({
 })
 
 const submit = () => {
-  router.visit(`/view?url=${form.url}`)
+  if (form.url.startsWith('https://') || form.url.startsWith('http://')) {
+    router.visit(`/view?url=${form.url}`)
+  } else {
+    router.visit(`/view?url=https://${form.url}`)
+  }
 }
 </script>
 
