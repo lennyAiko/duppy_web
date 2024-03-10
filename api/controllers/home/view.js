@@ -43,6 +43,7 @@ module.exports = {
 
     const page = await fetch(baseUrl, { timeout: 3000 })
     const htmlPage = await page.text()
+
     // All done.
     return exits.success({ page: 'view', props: { baseUrl, htmlPage } })
   }

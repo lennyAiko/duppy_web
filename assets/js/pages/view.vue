@@ -11,20 +11,22 @@ const { baseUrl, htmlPage } = defineProps({
 const page = parse(htmlPage)
 
 const url = new URL(baseUrl).host
-console.log(url)
-console.log(
-  page.querySelector('meta[property="og:image"]').getAttribute('content')
-)
-console.log(
-  page.querySelector('meta[property="og:title"]').getAttribute('content')
-)
-console.log(
-  page.querySelector('meta[property="og:description"]').getAttribute('content')
-)
 
-// const image = ref(
-//   page.querySelector('meta[property="og.image"]').getAttribute('content')
-// )
+const imageUrl = ref(
+  page.querySelector('meta[property="og:image"]')?.getAttribute('content')
+)
+const title = ref(
+  page.querySelector('meta[property="og:title"]')?.getAttribute('content')
+)
+const description = ref(
+  page.querySelector('meta[property="og:description"]')?.getAttribute('content')
+)
+const type = ref(
+  page.querySelector('meta[property="og:type"]')?.getAttribute('content')
+)
+const author = ref(
+  page.querySelector('meta[name="author"]')?.getAttribute('content')
+)
 </script>
 
 <template>
@@ -32,5 +34,11 @@ console.log(
 
   <p class="">View your SEO details</p>
 
-  {{ baseUrl }}
+  {{ url }}
+  <img v-if="imageUrl" :src="imageUrl" alt="SEO image" class="h-20 w-20" />
+  <p class="" v-else>No image found</p>
+  {{ title }} <br />
+  {{ description }} <br />
+  {{ type }} <br />
+  {{ author }} <br />
 </template>
