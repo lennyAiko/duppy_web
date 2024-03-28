@@ -12,6 +12,10 @@ module.exports = {
   },
 
   fn: async function () {
+    const getPage = await fetch('https://google.com')
+
+    console.log(await getPage())
+
     return {
       page: 'index'
     }
