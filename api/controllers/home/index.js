@@ -16,6 +16,8 @@ module.exports = {
 
     console.log(await getPage())
 
-    return { page: 'index' }
+    return {
+      page: 'index'
+    }
   }
 }

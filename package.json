@@ -11,6 +11,7 @@
     "@sailshq/lodash": "^3.10.3",
     "@sailshq/socket.io-redis": "^5.2.0",
     "inertia-sails": "^0.2.0",
+    "node-html-parser": "^6.1.12",
     "nodemailer": "^6.9.4",
     "sails": "^1.5.2",
     "sails-flash": "^0.0.1",
